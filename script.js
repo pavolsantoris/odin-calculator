@@ -18,6 +18,8 @@ const numbers = document.querySelectorAll('.numbers');
 const equalBtn = document.getElementById('equals');
 const clearBtn = document.getElementById('clear');
 const operatorBtns = document.querySelectorAll('.operator');
+const decimalBtn = document.getElementById('decimal');
+const backBtn = document.getElementById('back');
 
 let operator = '';
 let a = '';
@@ -60,12 +62,12 @@ numbers.forEach(number => number.addEventListener('click', function(e) {print(th
 
 operatorBtns.forEach(operatorBtn => operatorBtn.addEventListener('click', function(e) {
      if (a === '') {
-          a = parseInt(display.textContent);
+          a = parseFloat(display.textContent);
           operator = this.textContent;
           memory.textContent = a + ' ' + operator;
           display.textContent = '';
      } else {
-          b = parseInt(display.textContent);
+          b = parseFloat(display.textContent);
           display.textContent = '';
           a = operate(a, b, operator);
           b = '';
@@ -74,10 +76,17 @@ operatorBtns.forEach(operatorBtn => operatorBtn.addEventListener('click', functi
      }
 }));
 
+decimalBtn.addEventListener('click', function(e) {
+     const isDecimal = display.textContent.includes('.');
+     if (isDecimal === false) {
+          display.textContent += '.'
+     }
+})
+
 equalBtn.addEventListener('click', function() {
-     b = parseInt(display.textContent);
+     b = parseFloat(display.textContent);
      memory.textContent += ' ' + display.textContent;
-     display.textContent = operate(a, b, operator);
+     display.textContent = operate(a, b, operator).toFixed(4);
      b = '';
      a = '';
 });
@@ -87,4 +96,8 @@ clearBtn.addEventListener('click', function() {
      memory.textContent = '';
      a = '';
      b = '';
+});
+
+backBtn.addEventListener('click', function () {
+     display.textContent = display.textContent.substring(0, display.textContent.length - 1)
 });
