@@ -58,10 +58,23 @@ function print(key) {
      display.textContent += key;
 }
 
+function controlDecimal() {
+     for (i = 0; i < 5; i++) {
+          let lastChar = display.textContent.charAt(display.textContent.length - 1);
+          if (lastChar === '0' || lastChar === '.') {
+               display.textContent = display.textContent.substring(0, display.textContent.length - 1);
+          } else {
+               return;
+          }
+     };
+}
+
 numbers.forEach(number => number.addEventListener('click', function(e) {print(this.textContent);}));
 
 operatorBtns.forEach(operatorBtn => operatorBtn.addEventListener('click', function(e) {
-     if (a === '') {
+     if (a === '' && display.textContent === '') {
+          return;
+     } else if (a === '') {
           a = parseFloat(display.textContent);
           operator = this.textContent;
           memory.textContent = a + ' ' + operator;
@@ -87,6 +100,7 @@ equalBtn.addEventListener('click', function() {
      b = parseFloat(display.textContent);
      memory.textContent += ' ' + display.textContent;
      display.textContent = operate(a, b, operator).toFixed(4);
+     controlDecimal();
      b = '';
      a = '';
 });
@@ -98,9 +112,13 @@ clearBtn.addEventListener('click', function() {
      b = '';
 });
 
+// button removing last character in display
+
 backBtn.addEventListener('click', function () {
-     display.textContent = display.textContent.substring(0, display.textContent.length - 1)
+     display.textContent = display.textContent.substring(0, display.textContent.length - 1);
 });
+
+// keyboard input inspired by Anastazy6's solution
 
 window.onkeydown = function(e) {
      let button;
@@ -172,3 +190,4 @@ window.onkeydown = function(e) {
      }         
      button !== undefined ? button.click() : console.log('This button does nothing.');
 }
+
