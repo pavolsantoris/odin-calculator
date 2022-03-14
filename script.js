@@ -28,14 +28,14 @@ let b = '';
 function operate(a, b, operator) {
      switch (operator) {
           case '+' :
-               return add(a, b);
+               return add(a, b);    
           case '-' :
                return substract(a, b);
           case '*' :
                return multiply(a, b);
           case '/' :
                return divide(a, b);
-     }
+     }    
 }
 
 function add(a, b) {
@@ -101,3 +101,74 @@ clearBtn.addEventListener('click', function() {
 backBtn.addEventListener('click', function () {
      display.textContent = display.textContent.substring(0, display.textContent.length - 1)
 });
+
+window.onkeydown = function(e) {
+     let button;
+     let keyPress = e.key;
+     switch (keyPress) {
+          case '1':
+               button = document.getElementById('1');
+               break;
+          case '2':
+               button = document.getElementById('2');
+               break;
+          case '3':
+               button = document.getElementById('3');
+               break;
+          case '4':
+               button = document.getElementById('4');
+               break;
+          case '5':
+               button = document.getElementById('5');
+               break;
+          case '6':
+               button = document.getElementById('6');
+               break;
+          case '7':
+               button = document.getElementById('7');
+               break;
+          case '8': 
+               button = document.getElementById('8');
+               break;
+          case '9':
+               button = document.getElementById('9');
+               break;
+          case '0':
+               button = document.getElementById('0');
+               break;
+          case '*':
+               button = document.getElementById('multiply');
+               break;
+          case 'x':
+               button = document.getElementById('multiply');
+               break;
+          case '/':
+               button = document.getElementById('divide');
+               break;
+          case '+':
+               button = document.getElementById('plus');
+               break;
+          case '-':
+               button = document.getElementById('minus');
+               break;
+          case 'Enter':
+               button = document.getElementById('equals');
+               break;
+          case '=':
+               button = document.getElementById('equals');
+               break;
+          case 'Escape':
+               button = document.getElementById('clear');
+               break;
+          case 'Backspace':
+               button = document.getElementById('back');
+               break;
+          case '.':
+               button = document.getElementById('decimal');
+               break;
+          case ',':
+               button = document.getElementById('decimal');
+               break;               
+     }         
+     button !== undefined ? button.click() : console.log('This button does nothing.');
+}
