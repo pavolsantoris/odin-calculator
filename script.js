@@ -1,23 +1,9 @@
 const display = document.getElementById('display');
 const memory = document.getElementById('memory');
-const numbers = document.querySelectorAll('.numbers');
-// const oneBtn = document.getElementById('number1');
-// const twoBtn = document.getElementById('number2');
-// const threeBtn = document.getElementById('number3');
-// const fourBtn = document.getElementById('number4');
-// const fiveBtn = document.getElementById('number5');
-// const sixBtn = document.getElementById('number6');
-// const sevenBtn = document.getElementById('number7');
-// const eightBtn = document.getElementById('number8');
-// const nineBtn = document.getElementById('number9');
-// const zeroBtn = document.getElementById('number0');
-// const plusBtn = document.getElementById('plus');
-// const minusBtn = document.getElementById('minus');
-// const multiplyBtn = document.getElementById('multiply');
-// const divideBtn = document.getElementById('divide');
+const numberBtns = document.querySelectorAll('.numbers');
+const operatorBtns = document.querySelectorAll('.operator');
 const equalBtn = document.getElementById('equals');
 const clearBtn = document.getElementById('clear');
-const operatorBtns = document.querySelectorAll('.operator');
 const decimalBtn = document.getElementById('decimal');
 const backBtn = document.getElementById('back');
 
@@ -69,7 +55,7 @@ function controlDecimal() {
      };
 }
 
-numbers.forEach(number => number.addEventListener('click', function(e) {print(this.textContent);}));
+numberBtns.forEach(numberBtn => numberBtn.addEventListener('click', function(e) {print(this.textContent);}));
 
 operatorBtns.forEach(operatorBtn => operatorBtn.addEventListener('click', function(e) {
      if (a === '' && display.textContent === '') {
