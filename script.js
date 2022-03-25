@@ -84,7 +84,7 @@ decimalBtn.addEventListener('click', function(e) {
 
 equalBtn.addEventListener('click', function() {
      b = parseFloat(display.textContent);
-     memory.textContent += ' ' + display.textContent;
+     memory.textContent += display.textContent;
      display.textContent = operate(a, b, operator).toFixed(4);
      controlDecimal();
      b = '';
@@ -109,36 +109,47 @@ backBtn.addEventListener('click', function () {
 window.onkeydown = function(e) {
      let button;
      let keyPress = e.key;
+     let isNumber = false;
      switch (keyPress) {
           case '1':
                button = document.getElementById('1');
+               isNumber = true;
                break;
           case '2':
                button = document.getElementById('2');
+               isNumber = true;
                break;
           case '3':
                button = document.getElementById('3');
+               isNumber = true;
                break;
           case '4':
                button = document.getElementById('4');
+               isNumber = true;
                break;
           case '5':
                button = document.getElementById('5');
+               isNumber = true;
                break;
           case '6':
                button = document.getElementById('6');
+               isNumber = true;
                break;
           case '7':
                button = document.getElementById('7');
+               isNumber = true;
                break;
           case '8': 
                button = document.getElementById('8');
+               isNumber = true;
                break;
           case '9':
                button = document.getElementById('9');
+               isNumber = true;
                break;
           case '0':
                button = document.getElementById('0');
+               isNumber = true;
                break;
           case '*':
                button = document.getElementById('multiply');
@@ -173,6 +184,9 @@ window.onkeydown = function(e) {
           case ',':
                button = document.getElementById('decimal');
                break;               
+     }
+     if (display.textContent.length === 15 && isNumber === true) {
+          return;
      }         
      button !== undefined ? button.click() : console.log('This button does nothing.');
 }

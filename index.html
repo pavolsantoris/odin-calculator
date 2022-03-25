@@ -6,18 +6,19 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>CALCULATOR</title>
      <link rel="stylesheet" href="styles.css">
+     <link href="https://fonts.googleapis.com/css2?family=Geostar+Fill&display=swap" rel="stylesheet">
      <script src="script.js" defer></script>
 </head>
 <body>
-     <div id="calculator">
+     <div id="calculator" class="center">
           <div id="displayRow">
                <div id="memory"></div>
                <div id="display"></div>
           </div> 
           <div id="btns">
                <div id="row1" class="btnRow">
-                    <button id="clear">CLEAR</button>
-                    <button id="back">BACK</button>
+                    <button id="clear" class="nonOperator">CLEAR</button>
+                    <button id="back" class="nonOperator">BACK</button>
                </div>
                <div id="row2" class="btnRow">
                     <button id="1" class="numbers">1</button>
@@ -38,9 +39,9 @@
                     <button id="multiply" class="operator">*</button>
                </div>
                <div id="row5" class="btnRow">
+                    <button id="decimal" class="nonOperator">.</button>
                     <button id="0" class="numbers">0</button>
-                    <button id="decimal">.</button>
-                    <button id="equals">=</button>
+                    <button id="equals" class="nonOperator">=</button>
                     <button id="divide" class="operator">/</button>
                </div>
           </div>          
